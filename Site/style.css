@@ -74,3 +74,11 @@ table thead th {
     background-color: #f4511e;
     color: white;
 }
+
+#pacotes .figuras figure {
+    display: inline-block;
+}
+
+#pacotes .figuras, #pacotes .videos {
+    text-align: center;
+}
