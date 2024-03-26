@@ -22,8 +22,8 @@ h2 {
     font-weight: 600;
 }
 
-.carousel.caption h5{
-    font-size: 80px;
+.carousel-caption h5{
+    font-size: 5em;
     color: #ffc107;
     text-shadow: 2px 2px 2px black;
 }
