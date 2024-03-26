@@ -52,16 +52,16 @@
             <hr>
         </p>
         <div class="row">
-            <figure class="col text-center">
-                <img src="img/joao pessoa.jpg" alt="Foto de joao pessoa">
+            <figure class="col text-center ">
+                <img src="img/joao pessoa.jpg" class="img-fluid img-thumbnail rounded mx-auto d-block" alt="Foto de João Pessoa">
                 <figcaption>João Pessoa</figcaption>
             </figure>
-            <figure class="col text-center">
-                <img src="img/Araial do Cabo.jpg" alt="Foto de Araial do Cabo">
+            <figure class="col text-center ">
+                <img src="img/Araial do Cabo.jpg" class="img-fluid img-thumbnail rounded mx-auto d-block" alt="Foto de Araial do Cabo">
                 <figcaption>Araial do Cabo</figcaption>
             </figure>
-            <figure class="col text-center">
-                <img src="img/Recife-1 (1).jpg" alt="Foto de Recife">
+            <figure class="col text-center ">
+                <img src="img/Recife-1 (1).jpg" class="img-fluid img-thumbnail rounded mx-auto d-block" alt="Foto de Recife">
                 <figcaption>Recife</figcaption>
             </figure>
         </div>
@@ -117,73 +117,69 @@
     </section>
 
     <section class="container-fluid bg-light">
-        <h2>Orçamento</h2>
+        <h2 class="text-center ">Faça já seu orçamento</h2>
         <form method="get" action="">
 
             <fieldset>
                 <legend>Dados da viagem</legend>
-                <label>Nome</label><br>
-                <input type="text" required name="nome"><br><br>
-
-                <label>Email</label><br>
-                <input type="email" name="email"><br><br>
-
-                <label>Data de ida</label><br>
-                <input type="date" name="dataIda"><br><br>
+                <div class="nb-3">
+                    <label class="form-label" for="nome">
+                        Nome:
+                    </label>
+                    <input type="text" class="form-control" required name="nome" id="nome">
+                </div>
                 
-                <label>Data de volta</label><br>
-                <input type="date" name="dataVolta"><br><br>
-
-                <label>Quantidade de pessoas</label><br>
-                <input type="number" name="qtdPessoas"><br><br>
+                <div class="nb-3">
+                    <label class="form-label" for="email">
+                        Email:
+                    </label>
+                    <input type="email" class="form-control" name="email" id="email">
+                </div>
+                
+                <div class="nb-3">
+                    <label class="form-label" for="dataIda">
+                        Data de ida:
+                    </label>
+                    <input type="date" class="form-control" name="dataIda" id="dataIda">
+                </div>
+                
+                <div class="nb-3">
+                    <label class="form-label" for="dataVolta">
+                        Data de volta:
+                    </label>
+                    <input type="date" class="form-control" name="dataVolta" id="dataVolta">
+                </div>
             </fieldset>
             
-
             <fieldset>
                 <legend>Quais serviços deseja contratar?</legend>
-                <label>
-                    <br><input type="checkbox" name="passagens" value="Passagens">Compra de passagens
-                </label>
-
-                <label>
-                    <br><input type="checkbox" name="hospedagem" value="Hospedagem">Reserva de hospedagem
-                </label>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="passagens" id="passagens" value="Passagens">
+                    <label class="form-check-label" for="passagens">
+                        Compra de passagens
+                    </label>
+                </div>
                 
-                <label>
-                    <br><input type="checkbox" name="veiculos" value="Veiculos">Reseva de veículos
-                </label>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="hospedagem" id="reservaHospedagem" value="Hospedagem">
+                    <label class="form-check-label" for="reservaHospedagem">
+                        Reserva de hospedagem
+                    </label>
+                </div>
+                
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input " name="veiculos" id="veiculos" value="Veiculos">
+                    <label class="form-check-label " for="veiculos">
+                        Reseva de veículos
+                    </label>
+                </div>
+                
                 
             </fieldset>
 
-            <fieldset>
-                <legend>Escolha a forma de pagamento</legend>
-                <label>
-                    <br><input type="radio" name="formaPagamento" value="Cartão de crédito">Cartão de crédito
-                </label>
-                <label>
-                    <br><input type="radio" name="formaPagamento" value="boleto">Boleto
-                </label>
-                <label>
-                    <br><input type="radio" name="formaPagamento" value="Pix">Pix
-                </label>
-            </fieldset>
-
-            <fieldset>
-                <legend>Escolha o prazo para pagamento</legend>
-                <select name="prazoPagamento">
-                    <option value="aVista">Á Vista</option>
-                    <option value="5x">5x sem juros</option>
-                    <option value="10x">10x com juros</option>
-                </select>
-            </fieldset>
-            
-            <br><label>Comentario</label><br>
-            <textarea rows="5" name="comentario"></textarea><br><br>
-
-            <button>Salvar</button>
-
-            
-            
+            <button class="btn btn-secondary">
+                Salvar
+            </button>
 
         </form>
     </section>
