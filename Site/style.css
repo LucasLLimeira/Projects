@@ -11,10 +11,6 @@ header {
     background-color: #f4511e;
 }
 
-section, footer {
-    margin: 40px
-}
-
 h1 {
     font-size: 63px;
     color: #303030;
@@ -28,29 +24,6 @@ h2 {
     text-transform: uppercase;
     color: #303030;
     font-weight: 600;
-}
-
-nav li a {
-    padding: 10px;
-    color:white;
-    text-decoration: none;
-}
-
-nav li {
-    float: left;
-}
-
-nav ul {
-    float: right;
-    list-style: none;
-}
-
-nav {
-    font-size: 12px;
-    letter-spacing: 4px;
-    height: 50px;
-    background-color: #f34c4c;
-    padding-right: 40px;
 }
 
 table {
