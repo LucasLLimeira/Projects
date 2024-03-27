@@ -1,3 +1,3 @@
-console.log("Teste")
-var a = 10;
-console.log(a);
+var nome = 'oi';
+
+console.log(nome.toUpperCase());
