@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function exemploEvewnto(){
+            alert("Mostrando o alert")
+        }
+        function passarmouseporcima(){
+            document.getElementById("exemplo").innerHTML = "Evento com mouse over"
+        }
+        function tirarmouse(){
+            document.getElementById("exemplo").innerHTML = "Evento mouse out"
+        }
+    </script>
+</head>
+<body>
+    <p>Clique no botão abeixo</p>
+    <form>
+        <input type="button" onclick="exemploEvewnto()" value="Apresentar">
+    </form>
+
+    <h1 id="exemplo" onmouseover="passarmouseporcima()" onmouseout="tirarmouse()">Troca de texto</h1>
+    
+    <form name="cadastro" onsubmit="validacao()">
+        <label>email</label>
+        <input type="email" id="email">
+
+        <label>nome</label>
+        <input type="text" id="nome">
+
+        <button type="submit">Cadastrar</button>
+    </form>
+    <script>
+        function validacao(){
+            let nomePessoa = document.forms["cadastro"]["nome"].value;
+            if(nomePessoa == ""){
+                alert("Informar o seu nome!")
+                event.preventDefault();
+            }else{
+                alert("Olá, " + nomePessoa);
+                event.preventDefault();
+            }
+
+
+        }
+    </script>
+    
+</body>
+</html>
