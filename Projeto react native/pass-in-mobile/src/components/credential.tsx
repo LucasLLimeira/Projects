@@ -2,16 +2,25 @@ import { View, Image, ImageBackground, Text, TouchableOpacity } from "react-nati
 import {Feather} from "@expo/vector-icons"
 import { colors } from "@/styles/colors";
 import { QRCode } from "@/components/qrcode";
+<<<<<<< HEAD
 import { BadgeStore } from "@/store/badge-store";
 
 type Props ={
     data: BadgeStore
+=======
+
+type Props ={
+>>>>>>> 10e8fe6fbf422a673db7295864f66b0952b1072a
     image?: string
     onChanceAvatar?: () => void
     onExpandQRCode?: () => void
 }
 
+<<<<<<< HEAD
 export function Credential({data, onChanceAvatar,onExpandQRCode}: Props){
+=======
+export function Credential({onChanceAvatar,onExpandQRCode , image}: Props){
+>>>>>>> 10e8fe6fbf422a673db7295864f66b0952b1072a
     return(
         <View className="w-full self-stretch items-center">
             <Image 
@@ -27,10 +36,17 @@ export function Credential({data, onChanceAvatar,onExpandQRCode}: Props){
                 overflow-hidden">
                     <View className="w-full flex-row items-center justify-between">
                         <Text className="text-zinc-50 text-sm font-bold">
+<<<<<<< HEAD
                             {data.eventTitle}
                         </Text>
                         <Text className="text-zinc-50 text-sm font-bold">
                             #{data.id}
+=======
+                            Unite summit
+                        </Text>
+                        <Text className="text-zinc-50 text-sm font-bold">
+                            #123
+>>>>>>> 10e8fe6fbf422a673db7295864f66b0952b1072a
                         </Text>
                     </View>
 
@@ -38,10 +54,17 @@ export function Credential({data, onChanceAvatar,onExpandQRCode}: Props){
 
                 </ImageBackground>
 
+<<<<<<< HEAD
                 {data.image ? (
                     <TouchableOpacity activeOpacity={0.9} onPress={onChanceAvatar}>
                         <Image 
                             source={{uri: data.image}} 
+=======
+                {image ? (
+                    <TouchableOpacity activeOpacity={0.9} onPress={onChanceAvatar}>
+                        <Image 
+                            source={{uri: image}} 
+>>>>>>> 10e8fe6fbf422a673db7295864f66b0952b1072a
                             className="w-36 h-36 rounded-full -mt-24" 
                         />
                     </TouchableOpacity>        
@@ -64,12 +87,21 @@ export function Credential({data, onChanceAvatar,onExpandQRCode}: Props){
                 }
 
                 <Text className="font-bold text-2xl text-zinc-50 mt-4">
+<<<<<<< HEAD
                     {data.name}
                 </Text>
                 <Text className="font-regular text-base text-zinc-300 mb-4">
                     {data.email}
                 </Text>
                 <QRCode value={data.checkInURL} size={120} />
+=======
+                    Lucas Limeira
+                </Text>
+                <Text className="font-regular text-base text-zinc-300 mb-4">
+                    Lucasdllimeira@hotmail.com
+                </Text>
+                <QRCode value="teste" size={120} />
+>>>>>>> 10e8fe6fbf422a673db7295864f66b0952b1072a
 
                 <TouchableOpacity 
                 activeOpacity={0.7} 
