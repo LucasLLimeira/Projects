@@ -2,14 +2,16 @@ import { View, Image, ImageBackground, Text, TouchableOpacity } from "react-nati
 import {Feather} from "@expo/vector-icons"
 import { colors } from "@/styles/colors";
 import { QRCode } from "@/components/qrcode";
+import { BadgeStore } from "@/store/badge-store";
 
 type Props ={
+    data: BadgeStore
     image?: string
     onChanceAvatar?: () => void
     onExpandQRCode?: () => void
 }
 
-export function Credential({onChanceAvatar,onExpandQRCode , image}: Props){
+export function Credential({data, onChanceAvatar,onExpandQRCode}: Props){
     return(
         <View className="w-full self-stretch items-center">
             <Image 
@@ -25,10 +27,10 @@ export function Credential({onChanceAvatar,onExpandQRCode , image}: Props){
                 overflow-hidden">
                     <View className="w-full flex-row items-center justify-between">
                         <Text className="text-zinc-50 text-sm font-bold">
-                            Unite summit
+                            {data.eventTitle}
                         </Text>
                         <Text className="text-zinc-50 text-sm font-bold">
-                            #123
+                            #{data.id}
                         </Text>
                     </View>
 
@@ -36,10 +38,10 @@ export function Credential({onChanceAvatar,onExpandQRCode , image}: Props){
 
                 </ImageBackground>
 
-                {image ? (
+                {data.image ? (
                     <TouchableOpacity activeOpacity={0.9} onPress={onChanceAvatar}>
                         <Image 
-                            source={{uri: image}} 
+                            source={{uri: data.image}} 
                             className="w-36 h-36 rounded-full -mt-24" 
                         />
                     </TouchableOpacity>        
@@ -62,12 +64,12 @@ export function Credential({onChanceAvatar,onExpandQRCode , image}: Props){
                 }
 
                 <Text className="font-bold text-2xl text-zinc-50 mt-4">
-                    Lucas Limeira
+                    {data.name}
                 </Text>
                 <Text className="font-regular text-base text-zinc-300 mb-4">
-                    Lucasdllimeira@hotmail.com
+                    {data.email}
                 </Text>
-                <QRCode value="teste" size={120} />
+                <QRCode value={data.checkInURL} size={120} />
 
                 <TouchableOpacity 
                 activeOpacity={0.7} 

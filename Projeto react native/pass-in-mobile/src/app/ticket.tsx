@@ -1,17 +1,34 @@
 import { useState } from "react";
 import { Credential } from "@/components/credential";
 import { Header } from "@/components/header";
-import { StatusBar, Text, View, ScrollView, TouchableOpacity, Alert, Modal } from "react-native";
+import { StatusBar, Text, View, ScrollView, TouchableOpacity, Alert, Modal, Share } from "react-native";
 import { FontAwesome } from "@expo/vector-icons"
 import { colors } from "@/styles/colors";
 import { Button } from "@/components/button";
 import * as ImagePicker from "expo-image-picker"
 import { QRCode } from "@/components/qrcode";
+import { useBadgeStore } from "@/store/badge-store";
+import { Redirect } from "expo-router";
 
 
 export default function Ticket(){
-    const [image, setImage] = useState("")
     const [expandQRCode, setExpandQRCode] = useState(false)
+
+    const badgeStore = useBadgeStore()
+
+    async function handleShare() {
+        try{
+            if(badgeStore.data?.checkInURL){
+                await Share.share({
+                    message: badgeStore.data.checkInURL
+                })
+            }
+
+        }catch (error){
+            console.log(error)
+            Alert.alert("Compartilhar", "não foi possível compartilhar")
+        }
+    }
 
     async function handleSelectImage() {
         try {
@@ -21,7 +38,7 @@ export default function Ticket(){
                 aspect: [4, 4],
             })
         if(result.assets){
-            setImage(result.assets[0].uri)
+            badgeStore.updateAvatar(result.assets[0].uri)
         }
 
         }catch(error){
@@ -29,6 +46,11 @@ export default function Ticket(){
             Alert.alert("Foto", "Não foi possível selecionar a imagem")
         }
     }
+
+    if(!badgeStore.data?.checkInURL){
+        return <Redirect href="/" />
+    }
+
     return(
         <View className="flex-1 bg-green-500">
             <StatusBar barStyle="light-content" />
@@ -38,8 +60,8 @@ export default function Ticket(){
             className="-mt-28 -z-10" 
             contentContainerClassName="px-8 pb-8"
             showsVerticalScrollIndicator={false}>
-                <Credential 
-                image={image} 
+                <Credential  
+                data={badgeStore.data}
                 onChanceAvatar={handleSelectImage}
                 onExpandQRCode={() => setExpandQRCode(true)} />
 
@@ -54,12 +76,14 @@ export default function Ticket(){
                 </Text>
 
                 <Text className="text-white font-regular text-base mt-1 mb-6">
-                    Mostre ao mundo que você vai participar do Unite Summit!
+                    Mostre ao mundo que você vai participar do evento {badgeStore.data.eventTitle}!
                 </Text>
 
-                <Button title="Compartilhar" />
+                <Button title="Compartilhar" onPress={handleShare} />
 
-                <TouchableOpacity activeOpacity={0.7}>
+                <TouchableOpacity 
+                activeOpacity={0.7} 
+                onPress={() => badgeStore.remove()}>
                     <Text className="mt-10 text-base text-white font-bold text-center">
                         Remover Ingresso
                     </Text>
