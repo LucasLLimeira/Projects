@@ -100,6 +100,7 @@
     }
   },
   "cli": {
+    "analytics": "2c257259-dd54-4e8e-bf2a-65bc6ecc6ab7"
 <<<<<<<< HEAD:angular/my-app/angular.json
     "analytics": "0429b870-bc0e-4bcf-9bd9-385e3064a7db"
 ========
